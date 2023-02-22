@@ -7,6 +7,12 @@ const previousDisplayNum = document.querySelector(".previous-num");
 const currentDisplayNum = document.querySelector(".current-num");
 const addDecimalBtn = document.querySelector(".addDecimalBtn");
 
+let currentNum = "";
+let previousNum = "";
+let operator = "";
+
+// Math functions
+
 function add(a, b) {
   return a + b;
 }
@@ -27,9 +33,7 @@ function roundNumber(num) {
   return Math.round((num * 10000) / 10000);
 }
 
-let currentNum = "";
-let previousNum = "";
-let operator = "";
+// Display buttons
 
 numberBtn.forEach((number) => {
   number.addEventListener("click", (e) => {
@@ -81,6 +85,8 @@ equalsBtn.addEventListener("click", () => {
   console.log("hi");
 });
 
+// Calculate
+
 function operate(a, b) {
   a = Number(previousNum);
   b = Number(currentNum);
@@ -114,6 +120,8 @@ function displayResult() {
   operator = "";
   currentNum = "";
 }
+
+// Manage buttons
 
 allClearBtn.addEventListener("click", () => {
   allClear();
