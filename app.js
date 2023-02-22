@@ -1,13 +1,3 @@
-// app should have:
-// add, substract, multiply, divide
-// clear button
-// read pressed buttons and store in variable for use
-// make operation with said buttons
-// store result
-// show everything on screen
-// round big numbers
-// disable . if it's already used
-
 const numberBtn = document.querySelectorAll("[data-number]");
 const operationBtn = document.querySelectorAll("[data-operation]");
 const allClearBtn = document.getElementById("all-clear");
@@ -15,6 +5,7 @@ const deleteBtn = document.getElementById("delete");
 const equalsBtn = document.querySelector(".equalBtn");
 const previousDisplayNum = document.querySelector(".previous-num");
 const currentDisplayNum = document.querySelector(".current-num");
+const addDecimalBtn = document.querySelector(".addDecimalBtn");
 
 function add(a, b) {
   return a + b;
@@ -30,6 +21,10 @@ function divide(a, b) {
 
 function multiply(a, b) {
   return a * b;
+}
+
+function roundNumber(num) {
+  return Math.round((num * 10000) / 10000);
 }
 
 let currentNum = "";
@@ -104,7 +99,7 @@ function operate(a, b) {
     }
     previousNum = divide(a, b);
   }
-
+  previousNum = roundNumber(previousNum);
   previousNum = previousNum.toString();
   displayResult();
 }
@@ -140,12 +135,23 @@ function deleteNum() {
   if (currentNum !== "") {
     currentNum = currentNum.slice(0, -1);
     currentDisplayNum.textContent = currentNum;
-    if ((currentNum = "")) {
+    if (currentNum === "") {
       currentDisplayNum.textContent = "0";
     }
   }
   if (currentNum === "" && previousNum !== "" && operator === "") {
     previousNum = previousNum.slice(0, -1);
     currentDisplayNum.textContent = previousNum;
+  }
+}
+
+addDecimalBtn.addEventListener("click", () => {
+  handleDecimal();
+});
+
+function handleDecimal() {
+  if (!currentDisplayNum.textContent.includes(".")) {
+    currentNum += ".";
+    currentDisplayNum.textContent = currentNum;
   }
 }

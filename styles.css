@@ -47,6 +47,7 @@
 }
 
 .calc-button-row button.ac {
+    width: 75%;
     color: #ff7665;
 }
 
