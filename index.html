@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Calculator Body -->
+    <div class="calc-body">
+      <!-- Calculator Display Screen -->
+      <div class="calc-screen">
+        <div id="calc-operation" class="previous-num"></div>
+        <div id="calc-typed" class="current-num">0</div>
+      </div>
+
+      <!-- Calculator Buttons -->
+      <div class="calc-button-row">
+        <button class="ac" id="all-clear">All Clear</button>
+        <button class="opt" data-operation>/</button>
+        <button data-number>7</button>
+        <button data-number>8</button>
+        <button data-number>9</button>
+        <button class="opt" data-operation>x</button>
+        <button data-number>4</button>
+        <button data-number>5</button>
+        <button data-number>6</button>
+        <button class="opt" data-operation>-</button>
+        <button data-number>1</button>
+        <button data-number>2</button>
+        <button data-number>3</button>
+        <button class="opt" data-operation>+</button>
+        <button data-number>0</button>
+        <button class="addDecimalBtn">.</button>
+        <button id="delete">&#9003;</button>
+        <button class="equalBtn" id="equals" data-equals="">=</button>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
